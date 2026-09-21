@@ -1,0 +1,452 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>IO</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-e96d0476.css">
+        <link rel="stylesheet" href="css/chrome-d279d366.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-312a8c40.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-d147fdf9.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="sending-and-receiving"><a class="header" href="#sending-and-receiving">Sending and Receiving</a></h1>
+<h2 id="basic-io-setup"><a class="header" href="#basic-io-setup">Basic IO setup</a></h2>
+<p>By default, s2n-tls sends and receives data using a provided file descriptor
+(usually a socket) and the read/write system calls. The file descriptor can be set with
+<code>s2n_connection_set_fd()</code>, or separate read and write file descriptors can be
+set with <code>s2n_connection_set_read_fd()</code> and <code>s2n_connection_set_write_fd()</code>.
+The provided file descriptor should be active and connected.</p>
+<p>In general the application is free to configure the file descriptor as preferred,
+including socket options. s2n-tls itself sets a few socket options:</p>
+<ul>
+<li>If available, TCP_QUICKACK is used during the TLS handshake</li>
+<li>If available and enabled via <code>s2n_connection_use_corked_io()</code>, TCP_CORK is
+used during the TLS handshake. TCP_NOPUSH or TCP_NODELAY may be used if TCP_CORK
+is not available.</li>
+</ul>
+<p><strong>Note for Windows:</strong>
+The file descriptor based APIs (<code>s2n_connection_set_fd()</code>,
+<code>s2n_connection_set_read_fd()</code>, <code>s2n_connection_set_write_fd()</code>, and
+<code>s2n_connection_use_corked_io()</code>) rely on POSIX socket semantics and are <strong>not
+available on Windows</strong>. On Windows, applications must instead provide their own
+I/O methods using the custom I/O callbacks described in
+<a href="#custom-io-callbacks">Custom IO Callbacks</a>. The callbacks can wrap a Winsock
+<code>SOCKET</code> (using <code>recv()</code>/<code>send()</code>) or any other transport. The socket options
+listed above are also only set on platforms that support them.</p>
+<p><strong>Important Note:</strong>
+If the read end of the pipe is closed unexpectedly, writing to the pipe will raise
+a SIGPIPE signal. <strong>s2n-tls does NOT handle SIGPIPE.</strong> A SIGPIPE signal will cause
+the process to terminate unless it is handled or ignored by the application.
+See the <a href="https://linux.die.net/man/2/signal">signal man page</a> for instructions on
+how to handle C signals, or simply ignore the SIGPIPE signal by calling
+<code>signal(SIGPIPE, SIG_IGN)</code> before calling any s2n-tls IO methods.
+(SIGPIPE does not exist on Windows, so this does not apply there.)</p>
+<h2 id="blocking-or-non-blocking"><a class="header" href="#blocking-or-non-blocking">Blocking or Non-Blocking?</a></h2>
+<p>s2n-tls supports both blocking and non-blocking I/O.</p>
+<ul>
+<li>In blocking mode, each s2n-tls I/O function will not return until it has completed
+the requested IO operation.</li>
+<li>In non-blocking mode, s2n-tls I/O functions will immediately return, even if the socket couldn’t
+send or receive all the requested data. In this case, the I/O function will return <code>S2N_FAILURE</code>,
+and <code>s2n_error_get_type()</code> will return <code>S2N_ERR_T_BLOCKED</code>. The I/O operation will have to be
+called again in order to send or receive the remaining requested data.</li>
+</ul>
+<p>Some s2n-tls I/O functions take a <code>blocked</code> argument. If an I/O function returns an
+<code>S2N_ERR_T_BLOCKED</code> error, the <code>blocked</code> argument will be set to a <code>s2n_blocked_status</code> value,
+indicating what s2n-tls is currently blocked on. Note that unless an I/O function returns
+<code>S2N_FAILURE</code> with an <code>S2N_ERR_T_BLOCKED</code> error, the <code>blocked</code> argument is meaningless, and should
+not be used in any application logic.</p>
+<p>Servers in particular usually prefer non-blocking mode. In blocking mode, a single connection
+blocks the thread while waiting for more IO. In non-blocking mode, multiple connections
+can make progress by returning control while waiting for more IO using methods like
+<a href="https://linux.die.net/man/2/poll"><code>poll</code></a> or <a href="https://linux.die.net/man/2/select"><code>select</code></a>.</p>
+<p>To use s2n-tls in non-blocking mode, set the underlying file descriptors as non-blocking.
+For example:</p>
+<pre><code class="language-c">int flags = fcntl(fd, F_GETFL, 0);
+if (flags &lt; 0) return S2N_FAILURE;
+if (fcntl(fd, F_SETFL, flags | O_NONBLOCK) &lt; 0) return S2N_FAILURE;
+</code></pre>
+<p>On Windows, <code>fcntl()</code> is not available. Configure the non-blocking mode of the
+underlying transport directly (for example, with <code>ioctlsocket()</code> and <code>FIONBIO</code>
+for a Winsock <code>SOCKET</code>) and drive I/O through the custom I/O callbacks described
+in <a href="#custom-io-callbacks">Custom IO Callbacks</a>.</p>
+<p>Note: If an application requires non-blocking IO, it likely also requires self-service blinding. See <a href="./ch03-error-handling.html#Blinding">Blinding</a>.</p>
+<h2 id="errors-and-alerts"><a class="header" href="#errors-and-alerts">Errors and Alerts</a></h2>
+<p>If the peer sends an alert, the next call to a read IO method will report <strong>S2N_FAILURE</strong> and
+<code>s2n_error_get_type()</code> will return <strong>S2N_ERR_T_ALERT</strong>. The specific alert received
+is available by calling <code>s2n_connection_get_alert()</code>.</p>
+<p>In TLS1.3, all alerts are fatal. s2n-tls also treats all alerts as fatal in earlier
+versions of TLS by default. <code>s2n_config_set_alert_behavior()</code> can be called to
+force s2n-tls to treat pre-TLS1.3 warning alerts as not fatal, but that behavior
+is not recommended unless required for compatibility. In the past, attacks against
+TLS have involved manipulating the alert level to disguise fatal alerts as warnings.</p>
+<p>If s2n-tls encounters a fatal error, the next call to a write IO method will send
+a close_notify alert to the peer. Except for a few exceptions, s2n-tls does not
+send specific alerts in order to avoid leaking information that could be used for
+a sidechannel attack. To ensure that the alert is sent, <code>s2n_shutdown()</code> should
+be called after an error.</p>
+<h2 id="performing-the-tls-handshake"><a class="header" href="#performing-the-tls-handshake">Performing the TLS Handshake</a></h2>
+<p>Before application data can be sent or received, an application must perform a handshake
+to establish a TLS connection with the peer.</p>
+<p>To perform the handshake, call <code>s2n_negotiate()</code> until it either returns <strong>S2N_SUCCESS</strong>
+or returns <strong>S2N_FAILURE</strong> without a <strong>S2N_ERR_T_BLOCKED</strong> error.</p>
+<p>To check whether the handshake has fully completed, use <code>s2n_connection_handshake_complete()</code>.
+Don’t rely on <code>handshake_type</code> or <code>s2n_connection_get_handshake_type_name()</code> as a completion
+signal: those describe which messages are part of the negotiated handshake, not whether the
+handshake has actually finished.</p>
+<p>For an example of how to perform a basic handshake, see <a href="https://github.com/aws/s2n-tls/blob/main/docs/examples/s2n_negotiate.c">examples/s2n_negotiate.c</a></p>
+<h2 id="application-data"><a class="header" href="#application-data">Application Data</a></h2>
+<p>After the TLS handshake, an application can send and receive encrypted data.</p>
+<p>Although most s2n-tls APIs are not thread-safe, <code>s2n_send()</code> and <code>s2n_recv()</code>
+may be called simultaneously from two different threads. This means that an
+application may have one thread calling <code>s2n_send()</code> and one thread calling <code>s2n_recv()</code>,
+but NOT multiple threads calling <code>s2n_recv()</code> or multiple threads calling <code>s2n_send()</code>.</p>
+<p>Even if an application only intends to send data or only intends to receive data,
+it should implement both send and receive in order to handle alerts and post-handshake
+TLS control messages like session tickets.</p>
+<h3 id="sending-application-data"><a class="header" href="#sending-application-data">Sending Application Data</a></h3>
+<p><code>s2n_send()</code> and its variants encrypt and send application data to the peer.
+The sending methods return the number of bytes written and may indicate a partial
+write. Partial writes are possible not just for non-blocking I/O, but also for
+connections aborted while active.</p>
+<p>A single call to <code>s2n_send()</code> may involve multiple system calls to write the
+provided application data. s2n-tls breaks the application data into fixed-sized
+records before encryption, then calls write for each record.
+<a href="./ch08-record-sizes.html">See the record size documentation for how record size may impact performance</a>.</p>
+<p>In non-blocking mode, <code>s2n_send()</code> will send data from the provided buffer and return the number of
+bytes sent, as long as the socket was able to send at least 1 byte. If no bytes could be sent on the
+socket, <code>s2n_send()</code> will return <code>S2N_FAILURE</code>, and <code>s2n_error_get_type()</code> will return
+<code>S2N_ERR_T_BLOCKED</code>. To ensure that all the provided data gets sent, applications should continue
+calling <code>s2n_send()</code> until the return values across all calls have added up to the length of the
+data, or until <code>s2n_send()</code> returns an <code>S2N_ERR_T_BLOCKED</code> error. After an <code>S2N_ERR_T_BLOCKED</code>
+error is returned, applications should call <code>s2n_send()</code> again only after the socket is
+able to send more data. This can be determined by using methods like
+<a href="https://linux.die.net/man/2/poll"><code>poll</code></a> or <a href="https://linux.die.net/man/2/select"><code>select</code></a>.</p>
+<p>Unlike OpenSSL, repeated calls to <code>s2n_send()</code> should not duplicate the original
+parameters, but should update the inputs per the indication of size written. s2n-tls
+will attempt to sanity check that the inputs are properly updated between calls.
+Because of those sanity checks, a zero-length send call cannot be used as a flushing mechanism.</p>
+<p><code>s2n_sendv_with_offset()</code> behaves like <code>s2n_send()</code>, but supports vectorized buffers.
+The offset input should be updated between calls to reflect the data already written.</p>
+<p><code>s2n_sendv()</code> also supports vectorized buffers, but assumes an offset of 0.
+Because of this assumption, a caller would have to make sure that the input vectors
+are updated to account for a partial write. Therefore <code>s2n_sendv_with_offset()</code>
+is preferred.</p>
+<p>For examples of how to send <code>data</code> of length <code>data_size</code> with <code>s2n_send()</code>
+or <code>s2n_sendv_with_offset()</code>, see <a href="https://github.com/aws/s2n-tls/blob/main/docs/examples/s2n_send.c">examples/s2n_send.c</a></p>
+<h3 id="receiving-application-data"><a class="header" href="#receiving-application-data">Receiving Application Data</a></h3>
+<p><code>s2n_recv()</code> reads and decrypts application data from the peer, copying it into
+the application-provided output buffer. It returns the number of bytes read, and
+may indicate a partial read even if blocking IO is used.
+It returns “0” to indicate that the peer has shutdown the connection.</p>
+<p>By default, <code>s2n_recv()</code> will return after reading a single TLS record. <code>s2n_recv()</code> can be called
+repeatedly to read multiple records. To allow <code>s2n_recv()</code> to read multiple records with a single
+call, use <code>s2n_config_set_recv_multi_record()</code>.</p>
+<p>In non-blocking mode, <code>s2n_recv()</code> will read data into the provided buffer and return the number of
+bytes read, as long as at least 1 byte was read from the socket. If no bytes could be read from the
+socket, <code>s2n_recv()</code> will return <code>S2N_FAILURE</code>, and <code>s2n_error_get_type()</code> will return
+<code>S2N_ERR_T_BLOCKED</code>. To ensure that all data on the socket is properly received, applications
+should continue calling <code>s2n_recv()</code> until it returns an <code>S2N_ERR_T_BLOCKED</code> error. After an
+<code>S2N_ERR_T_BLOCKED</code> error is returned, applications should call <code>s2n_recv()</code> again only after the
+socket has received more data. This can be determined by using methods like
+<a href="https://linux.die.net/man/2/poll"><code>poll</code></a> or <a href="https://linux.die.net/man/2/select"><code>select</code></a>.</p>
+<p>Unlike OpenSSL, repeated calls to <code>s2n_recv()</code> should not duplicate the original parameters,
+but should update the inputs per the indication of size read.</p>
+<p>For an example of how to read all the data sent by the peer into one buffer,
+see <code>s2n_example_recv()</code> in <a href="https://github.com/aws/s2n-tls/blob/main/docs/examples/s2n_recv.c">examples/s2n_recv.c</a></p>
+<p>For an example of how to echo any data sent by the peer,
+see <code>s2n_example_recv_echo()</code> in <a href="https://github.com/aws/s2n-tls/blob/main/docs/examples/s2n_recv.c">examples/s2n_recv.c</a></p>
+<p><code>s2n_peek()</code> can be used to check if more application data may be returned
+from <code>s2n_recv()</code> without performing another read from the file descriptor.
+This is useful when using <code>select()</code> on the underlying s2n-tls file descriptor, because
+a call to <code>s2n_recv()</code> may read more data into s2n-tls’s internal buffer than
+was requested or can fit into the application-provided output buffer. This extra
+application data will be returned by the next call to <code>s2n_recv()</code>, but <code>select()</code>
+will be unable to tell the application that there is more data available and that
+<code>s2n_recv()</code> should be called again. An application can solve this problem by
+calling <code>s2n_peek()</code> to determine if <code>s2n_recv()</code> needs to be called again.</p>
+<h2 id="closing-the-connection"><a class="header" href="#closing-the-connection">Closing the Connection</a></h2>
+<p><code>s2n_shutdown()</code> attempts a graceful closure at the TLS layer. It does not close the
+underlying transport. The call may block on either reading or writing.</p>
+<p><code>s2n_shutdown()</code> should be called after an error in order to ensure that s2n-tls
+sends an alert to notify the peer of the failure.</p>
+<p><code>s2n_shutdown()</code> will discard any application data received from the peer. This
+can lead to data truncation, so <code>s2n_shutdown_send()</code> may be preferred for TLS1.3
+connections where the peer continues sending after the application initiates
+shutdown. See <a href="#closing-the-connection-for-writes">Closing the connection for writes</a>
+below.</p>
+<p>Because <code>s2n_shutdown()</code> attempts a graceful shutdown, it will not return success
+unless a close_notify alert is successfully both sent and received. As a result,
+<code>s2n_shutdown()</code> may fail when interacting with a non-conformant TLS implementation
+or if called on a connection in a bad state.</p>
+<p><code>s2n_shutdown()</code> may also read and decrypt multiple application data records while waiting
+for the close_notify alert. This could result in calls to <code>s2n_shutdown()</code> taking a long
+time to complete. If this is a problem, <code>s2n_shutdown_send()</code> may be preferable.
+See <a href="#closing-the-connection-for-writes">Closing the connection for writes</a> below.</p>
+<p>Once <code>s2n_shutdown()</code> is complete:</p>
+<ul>
+<li>The s2n_connection handle cannot be used for reading or writing.</li>
+<li>The underlying transport can be closed, most likely via <code>shutdown()</code> or <code>close()</code>.</li>
+<li>The s2n_connection handle can be freed via <code>s2n_connection_free()</code> or reused
+via <code>s2n_connection_wipe()</code></li>
+</ul>
+<h3 id="closing-the-connection-for-writes"><a class="header" href="#closing-the-connection-for-writes">Closing the connection for writes</a></h3>
+<p>TLS1.3 supports closing the write side of a TLS connection while leaving the read
+side unaffected. This indicates “end-of-data” to the peer without preventing
+future reads. This feature is usually referred to as “half-close”.</p>
+<p>s2n-tls offers the <code>s2n_shutdown_send()</code> method to close the write side of
+a connection. Unlike <code>s2n_shutdown()</code>, it does not wait for the peer to respond
+with a close_notify alert and does not discard any incoming application data. An
+application can continue to call <code>s2n_recv()</code> after a call to <code>s2n_shutdown_send()</code>.</p>
+<p><code>s2n_shutdown_send()</code> may still be called for earlier TLS versions, but most
+TLS implementations will react by immediately discarding any pending writes and
+closing the connection.</p>
+<p>If <code>s2n_shutdown_send()</code> is used, the application should still call <code>s2n_shutdown()</code>
+or wait for <code>s2n_recv()</code> to return 0 to indicate end-of-data before cleaning up
+the connection or closing the read side of the underlying transport.</p>
+<h2 id="custom-io-callbacks"><a class="header" href="#custom-io-callbacks">Custom IO Callbacks</a></h2>
+<p>By default, s2n-tls sends and receives data using a provided file descriptor
+(usually a socket) and the read/write system calls. To change this default behavior,
+an application can implement custom send and receive methods using <code>s2n_connection_set_recv_cb()</code>
+and <code>s2n_connection_set_send_cb()</code>.
+The application can pass inputs (such as a file descriptor or destination buffer)
+to the custom IO methods by using <code>s2n_connection_set_recv_ctx()</code> and <code>s2n_connection_set_send_ctx()</code>.
+s2n-tls will call the custom IO methods with the custom context instead of calling
+the default implementation.</p>
+<p>On Windows, the default file descriptor based I/O is not available (see
+<a href="#basic-io-setup">Basic IO setup</a>), so providing custom I/O callbacks is the only
+way to connect s2n-tls to a transport. A typical implementation wraps a Winsock
+<code>SOCKET</code> and calls <code>recv()</code>/<code>send()</code>.</p>
+<p>The custom IO methods may send or receive less than the requested length. They
+should return the number of bytes sent/received, or set errno and return an error code &lt; 0.
+s2n-tls will interpret errno set to EWOULDBLOCK or EAGAIN as indicating a retriable
+blocking error, and set <strong>s2n_errno</strong> and the s2n_blocked_status appropriately.
+s2n-tls will interpret a return value of 0 as a closed connection.</p>
+<p>On Windows, Winsock reports a blocking condition through <code>WSAGetLastError()</code>
+returning <code>WSAEWOULDBLOCK</code> rather than through <code>errno</code>. A custom callback should
+translate this into a retriable blocking error by setting <code>errno</code> to <code>EWOULDBLOCK</code>
+(or <code>EAGAIN</code>) before returning a negative value, so that s2n-tls reports
+<code>S2N_ERR_T_BLOCKED</code> as expected.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="ch06-security-policies.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="ch08-record-sizes.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="ch06-security-policies.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="ch08-record-sizes.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-09f2665d.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
